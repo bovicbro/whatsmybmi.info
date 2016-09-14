@@ -1,0 +1,34 @@
+body {
+    background-color: #fcf1de;
+}
+
+.container {
+  background-color: white;
+       position: absolute;
+       padding-top: 20px;
+       padding-bottom:20px;
+       bottom: 0px;
+       top: 0px;
+       left: 0;
+       right: 0;
+       margin-left: auto;
+       margin-right: auto;
+       padding-left: 4%;
+       padding-right: 4%;
+}
+
+.my-element.ng-hide-add, .my-element.ng-hide-remove {
+  /* this is required as of 1.3x to properly
+     apply all styling in a show/hide animation */
+  transition: 0s linear all;
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.my-element.ng-hide-add-active,
+.my-element.ng-hide-remove-active {
+  /* the transition is defined in the active class */
+  transition: 0.5s linear all;
+  opacity: 1;
+  transform: translateY(0);
+}
