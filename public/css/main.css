@@ -4,7 +4,7 @@ body {
 
 .container {
   background-color: white;
-       position: absolute;
+       position: relative;
        padding-top: 20px;
        padding-bottom:20px;
        bottom: 0px;
@@ -17,18 +17,34 @@ body {
        padding-right: 4%;
 }
 
-.my-element.ng-hide-add, .my-element.ng-hide-remove {
+.my-element.ng-hide-add  {
   /* this is required as of 1.3x to properly
      apply all styling in a show/hide animation */
-  transition: 0s linear all;
+  transition: 0.5s linear all;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.my-element.ng-hide-add-active
+ {
+  /* the transition is defined in the active class */
+
+  opacity: 0;
+  transform: translateX(-20px);
+}
+
+.my-element.ng-hide-remove {
+  transition: 0.5s linear all;
   opacity: 0;
   transform: translateY(10px);
 }
 
-.my-element.ng-hide-add-active,
 .my-element.ng-hide-remove-active {
-  /* the transition is defined in the active class */
-  transition: 0.5s linear all;
   opacity: 1;
   transform: translateY(0);
+}
+
+.card {
+
+padding-top: 27px;
 }

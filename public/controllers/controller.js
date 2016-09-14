@@ -4,7 +4,7 @@ myApp.controller('AppCtrl', ['$scope', '$http', function($scope, $http)
 {
   $scope.unit_length="cm";
   $scope.unit_weight="kg";
-  $scope.calculated = false;
+  // $scope.calculated = false;
 
 
   // This is for implementing switch for metric or imperial system
@@ -30,6 +30,10 @@ myApp.controller('AppCtrl', ['$scope', '$http', function($scope, $http)
     }
   }
 
+  $scope.close_result = function() {
+    $scope.calculated = false;
+  }
+
   $scope.reference_values = {
     "very severely underweight" : 15,
     "severely underweight" : 16,
@@ -38,7 +42,7 @@ myApp.controller('AppCtrl', ['$scope', '$http', function($scope, $http)
     "overweight" : 30,
     "obese Class I" : 35,
     "obese Class II" : 40,
-    "obese Class III" : 99999999999999
+    "obese Class III" : "N/a"
   }
 
 }]);

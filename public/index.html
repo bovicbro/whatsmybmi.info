@@ -1,25 +1,26 @@
 <!DOCTYPE html>
 <html ng-app="myApp">
 <head>
-  <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<meta <name="WhatsMyBMI.info" content="This is a BMI calculator for men and women.">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-  <!-- Optional theme -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.indigo-red.min.css" />
-  <link rel="stylesheet" type="text/css" href="css/main.css" />
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.indigo-red.min.css" />
+<link rel="stylesheet" type="text/css" href="css/main.css" />
 
 
 <!-- Google analytics -->
 <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-84134035-1', 'auto');
-  ga('send', 'pageview');
+ga('create', 'UA-84134035-1', 'auto');
+ga('send', 'pageview');
 
 </script>
 
@@ -27,79 +28,116 @@
 </head>
 <body ng-controller="AppCtrl">
 
-  <div class="container">
-    <div class = "page-header">
-      <h1>
-        BMI calculator
-        <small>For men and women {{meassuring_system}}</small>
-      </h1>
+<div class="container">
+  <div class = "page-header">
+    <h1>
+      BMI calculator
+      <small>For men and women {{meassuring_system}}</small>
+    </h1>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+
+
+<div class="card">
+      <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+<div class="mdl-card__title">
+  <h2 class="mdl-card__title-text">Fill in your details</h2>
+</div>
+<div class="mdl-card__supporting-text">
+  <form action="#">
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+      <input value=0 ng-model="length" class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="sample4">
+      <label class="mdl-textfield__label" for="sample4">Length ({{unit_length}})</label>
+      <span class="mdl-textfield__error">Input is not a number!</span>
     </div>
-    <div class="row">
-      <div class="col-md-6">
-        <h3>Fill in your details</h3>
-        <!-- <form action="#">
-        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-3">
-          <input ng-model="meassuring_system" type="radio" id="option-3" class="mdl-radio__button" name="meassuring_system" value="metric" checked=="true">
-          <span class="mdl-radio__label">Metric</span>
-        </label>
-        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-4">
-          <input ng-model="meassuring_system" type="radio" id="option-4" class="mdl-radio__button" name="meassuring_system" value="imperial">
-          <span class="mdl-radio__label">Imperial</span>
-        </label>
-      </form> -->
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+      <input  value=0 ng-model="weight" class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="sample4">
+      <label class="mdl-textfield__label" for="sample4">Weight ({{unit_weight}})</label>
+      <span class="mdl-textfield__error">Input is not a number!</span>
+    </div>
+    <br>
+    <div>
+      <form action="#">
+      <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
+        <input ng-model="gender" type="radio" id="option-1" class="mdl-radio__button" name="gender" value="man" checked>
+        <span class="mdl-radio__label">Man</span>
+      </label>
+      <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2">
+        <input ng-model="gender" type="radio" id="option-2" class="mdl-radio__button" name="gender" value="woman">
+        <span class="mdl-radio__label">Woman</span>
+      </label>
+    </form>
+    </div>
+  </form>
+</div>
+<div class="mdl-card__actions mdl-card--border">
+  <a ng-click="clicked()" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+    Calculate
+  </a>
+</div>
+
+</div>
+
+</div>
+<br>
+
+<div class="card">
+      <div class="my-element" ng-hide="!calculated" >
+
+        <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+  <div class="mdl-card__title">
+    <h2 class="mdl-card__title-text">{{bmi_result}}</h2>
+  </div>
+  <div class="mdl-card__supporting-text">
+    <h5 >A BMI of {{bmi_result}} means that you are {{state_result}}.</h5>
+  </div>
+  <div class="mdl-card__actions mdl-card--border">
+    <a ng-click="close_result()"class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+      Got it!
+    </a>
+  </div>
+  <div class="mdl-card__menu">
+    <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+      <i class="material-icons">share</i>
+    </button>
+  </div>
+</div>
+
+
+</div>
+    </div>
+    </div>
+    <div class="col-md-6">
+      <h3>What is BMI?</h3>
+      <p>BMI stands for "body mass index" and is a way to meassure the weight of ones body compared to the length. BMI aims to determine the amount of body fat for a person. Having a too high or too low percentage of body fat may lead to heigthened risk of a number of serious diseases.
         <br>
-        <form action="#">
-          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-            <input value=0 ng-model="length" class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="sample4">
-            <label class="mdl-textfield__label" for="sample4">Length ({{unit_length}})</label>
-            <span class="mdl-textfield__error">Input is not a number!</span>
-          </div>
-          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-            <input  value=0 ng-model="weight" class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="sample4">
-            <label class="mdl-textfield__label" for="sample4">Weight ({{unit_weight}})</label>
-            <span class="mdl-textfield__error">Input is not a number!</span>
-          </div>
-          <br>
-          <div>
-            <form action="#">
-            <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
-              <input ng-model="gender" type="radio" id="option-1" class="mdl-radio__button" name="gender" value="man" checked>
-              <span class="mdl-radio__label">Man</span>
-            </label>
-            <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2">
-              <input ng-model="gender" type="radio" id="option-2" class="mdl-radio__button" name="gender" value="woman">
-              <span class="mdl-radio__label">Woman</span>
-            </label>
-          </form>
-          </div>
-          <br>
-          <div>
-            <button ng-click="clicked()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-              Calculate
-            </button>
-          </div>
-        </form>
-        <div class="my-element" ng-hide="!calculated" >
-        <h5 >Your current BMI is: </h5><h4><b>{{bmi_result}}</b></h4> <h5>which means that you are {{state_result}}.</h5>
-      </div>
-      </div>
-      <div class="col-md-6">
-        <h3>What is BMI?</h3>
-        <p>BMI stands for "body mass index" and is a way to meassure the weight of ones body compared to the length. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      </div>
+        <br>
+      With this simple tool, you can calculate your own Body Mass Index, which might be a good indicator for your current amount of body fat. The table below will help explain what your BMI means.</p>
+      <table class="table">
+        <tr>
+          <th>Upper limit</th>
+          <th>Weight status</th>
+        </tr>
+        <tr ng-repeat="(key, val) in reference_values">
+          <td>{{val}}</td>
+          <td>{{key}}</td>
+        </tr>
+      </table>
     </div>
+  </div>
 
-    <!--
+  <!--
 
 
-    <h4>Select your meassuring system!</h4>
-    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
-    <input ng-model="metric" type="radio" id="option-1" class="mdl-radio__button" name="options" value="1" checked>
-    <span class="mdl-radio__label">Metric</span>
-  </label>
-  <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2">
-  <input ng-model="imperial" type="radio" id="option-2" class="mdl-radio__button" name="options" value="2">
-  <span class="mdl-radio__label">Imperial</span>
+  <h4>Select your meassuring system!</h4>
+  <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
+  <input ng-model="metric" type="radio" id="option-1" class="mdl-radio__button" name="options" value="1" checked>
+  <span class="mdl-radio__label">Metric</span>
+</label>
+<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2">
+<input ng-model="imperial" type="radio" id="option-2" class="mdl-radio__button" name="options" value="2">
+<span class="mdl-radio__label">Imperial</span>
 </label>
 {{metric}}
 {{imperial}}-->
