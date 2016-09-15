@@ -98,8 +98,11 @@ ga('send', 'pageview');
     </a>
   </div>
   <div class="mdl-card__menu">
-    <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
-      <i class="material-icons">share</i>
+    <button id="tt1" ng-click="shareTwitter()" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+      <div  class="icon material-icons">share</div>
+      <div class="mdl-tooltip mdl-tooltip--large" for="tt1">
+      Share on Twitter
+      </div>
     </button>
   </div>
 </div>
@@ -147,6 +150,7 @@ ga('send', 'pageview');
 <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
 <script src="bower_components/angular-animate/angular-animate.js"></script>
+<script src="bower_components/angular-socialshare/dist/angular-socialshare.js"></script>
 <script src="controllers/controller.js"></script>
 </body>
 </html>

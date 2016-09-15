@@ -1,6 +1,6 @@
-var myApp = angular.module('myApp', ['ngAnimate']);
+var myApp = angular.module('myApp', ['ngAnimate', '720kb.socialshare']);
 
-myApp.controller('AppCtrl', ['$scope', '$http', function($scope, $http)
+myApp.controller('AppCtrl', ['$scope', '$http', 'Socialshare',  function($scope, $http, Socialshare)
 {
   $scope.unit_length="cm";
   $scope.unit_weight="kg";
@@ -44,5 +44,20 @@ myApp.controller('AppCtrl', ['$scope', '$http', function($scope, $http)
     "obese Class II" : 40,
     "obese Class III" : "N/a"
   }
+
+
+
+
+  //Social sharing
+$scope.shareTwitter = function() {
+  Socialshare.share({
+    'provider': 'twitter',
+    'attrs': {
+      'socialshareUrl' : 'http://whatsmybmi.info',
+      'socialshareText': 'I just calculated my BMI, and its ' +$scope.bmi_result+ '! Whats your BMI? '
+    }
+  });
+}
+
 
 }]);
