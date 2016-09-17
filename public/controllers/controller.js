@@ -59,5 +59,16 @@ $scope.shareTwitter = function() {
   });
 }
 
+$scope.sharePinterest = function() {
+  Socialshare.share({
+    'provider': 'pinterest',
+    'attrs': {
+      'socialshareUrl' : 'http://whatsmybmi.info',
+      'socialshareText': 'Check out this simple BMI calculator',
+      'socialshareMedia=' : '/static/bmi.png'
+    }
+  });
+}
+
 
 }]);
