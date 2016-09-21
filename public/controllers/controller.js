@@ -18,6 +18,9 @@ myApp.controller('AppCtrl', ['$scope', '$http', 'Socialshare',  function($scope,
   // }
 
   $scope.clicked = function() {
+
+    if ($scope.weight != null || $scope.length != null) {
+
     $scope.bmi_result=($scope.weight/(($scope.length/100)*($scope.length/100))).toFixed(2);
     for (var key in $scope.reference_values) {
       if ($scope.reference_values.hasOwnProperty(key)) {
@@ -28,6 +31,9 @@ myApp.controller('AppCtrl', ['$scope', '$http', 'Socialshare',  function($scope,
       }
       $scope.calculated = true;
     }
+      
+    };
+
   }
 
   $scope.close_result = function() {
